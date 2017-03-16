@@ -1,6 +1,6 @@
 <?php
 
-// Copyright (C) 2015 Jacob Barkdull
+// Copyright (C) 2015-2017 Jacob Barkdull
 // This file is part of HashOver.
 //
 // HashOver is free software: you can redistribute it and/or modify
@@ -29,8 +29,9 @@ if (basename ($_SERVER['PHP_SELF']) === basename (__FILE__)) {
 
 class Markdown
 {
-	public $blockCodeRegex = '/```([\s\S]+?)```/';
-	public $inlineCodeRegex = '/(^|[^a-z0-9`])`([^`]+?[\s\S]+?)`([^a-z0-9`]|$)/i';
+	public    $blockCodeRegex = '/```([\s\S]+?)```/';
+	protected $paragraphRegex = '/(?:\r\n|\r|\n){2}/';
+	public    $inlineCodeRegex = '/(^|[^a-z0-9`])`([^`]+?[\s\S]+?)`([^a-z0-9`]|$)/i';
 
 	// Array for inline code and code block markers
 	protected $codeMarkers = array (
@@ -64,10 +65,10 @@ class Markdown
 
 		if ($display !== 'block') {
 			$codeMarker = $grp[1] . $markName . '[' . $markCount . ']' . $grp[3];
-			$this->codeMarkers[$display]['marks'][$markCount] = trim ($grp[2], PHP_EOL);
+			$this->codeMarkers[$display]['marks'][$markCount] = trim ($grp[2], "\r\n");
 		} else {
 			$codeMarker = $markName . '[' . $markCount . ']';
-			$this->codeMarkers[$display]['marks'][$markCount] = trim ($grp[1], PHP_EOL);
+			$this->codeMarkers[$display]['marks'][$markCount] = trim ($grp[1], "\r\n");
 		}
 
 		return $codeMarker;
@@ -86,12 +87,14 @@ class Markdown
 	}
 
 	// Returns the original inline markdown code with HTML replacement
-	protected function inlineCodeReturn ($grp) {
+	protected function inlineCodeReturn ($grp)
+	{
 		return '<code class="hashover-inline">' . $this->codeMarkers['inline']['marks'][($grp[1])] . '</code>';
 	}
 
 	// Returns the original markdown code block with HTML replacement
-	protected function blockCodeReturn ($grp) {
+	protected function blockCodeReturn ($grp)
+	{
 		return '<code>' . $this->codeMarkers['block']['marks'][($grp[1])] . '</code>';
 	}
 
@@ -108,7 +111,7 @@ class Markdown
 		$string = preg_replace_callback ($this->blockCodeRegex, 'self::blockCodeReplace', $string);
 
 		// Break string into paragraphs
-		$paragraphs = explode (PHP_EOL . PHP_EOL, $string);
+		$paragraphs = preg_split ($this->paragraphRegex, $string);
 
 		// Run through each paragraph
 		for ($i = 0, $il = count ($paragraphs); $i < $il; $i++) {
@@ -116,7 +119,7 @@ class Markdown
 			$paragraphs[$i] = preg_replace_callback ($this->inlineCodeRegex, 'self::inlineCodeReplace', $paragraphs[$i]);
 
 			// Replace markdown patterns
-			$paragraphs[$i] = preg_replace($this->search, $this->replace, $paragraphs[$i]);
+			$paragraphs[$i] = preg_replace ($this->search, $this->replace, $paragraphs[$i]);
 
 			// Replace markers with original markdown code
 			$paragraphs[$i] = preg_replace_callback ('/CODE_INLINE\[([0-9]+)\]/', 'self::inlineCodeReturn', $paragraphs[$i]);

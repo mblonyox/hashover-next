@@ -21,7 +21,7 @@ if (basename ($_SERVER['PHP_SELF']) === basename (__FILE__)) {
 $locale = array (
 	'comment-form'		=> 'Schrijf uw reactie hier ...',
 	'reply-form'		=> 'Schrijf uw antwoord hier ...',
-	'form-tip'		=> 'Toegelaten HTML: &lt;b&gt;, &lt;u&gt;, &lt;i&gt;, &lt;s&gt;, &lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, &lt;code&gt; ontsnapt HTML, URLs automatisch worden links, en [img]URL hier[/img] zal tonen een extern beeld.',
+	'form-tip'		=> 'Toegelaten HTML: &lt;b&gt;, &lt;u&gt;, &lt;i&gt;, &lt;s&gt;, &lt;big&gt;, &lt;em&gt;, &lt;small&gt;, &lt;strong&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, &lt;code&gt; ontsnapt HTML, URLs automatisch worden links, en [img]URL hier[/img] zal tonen een extern beeld.',
 	'post-button'		=> 'Verstuur Reactie',
 	'login'			=> 'Inloggen',
 	'login-tip'		=> 'Inloggen (Optioneel)',
@@ -61,6 +61,7 @@ $locale = array (
 	'subscribe'		=> 'Herinner mij wanneer een antwoorden wordt geplaatst',
 	'subscribe-tip'		=> 'Meld aan voor herinneringen',
 	'edit-comment'		=> 'Bewerk reactie',
+	'status'		=> 'Status',
 	'status-approved'	=> 'Goedgekeurd',
 	'status-pending'	=> 'In afwachting van goedkeuring',
 	'status-deleted'	=> 'Gemarkeerd verwijderd',

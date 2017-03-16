@@ -21,7 +21,7 @@ if (basename ($_SERVER['PHP_SELF']) === basename (__FILE__)) {
 $locale = array (
 	'comment-form'		=> 'Escriba un comentario aquí...',
 	'reply-form'		=> 'Escriba su respuesta aquí...',
-	'form-tip'		=> 'HTML Aceptado: &lt;b&gt;, &lt;u&gt;, &lt;i&gt;, &lt;s&gt;, &lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, &lt;code&gt; escapa, Las URLs automágicamente se vuelven links, y [img] URL aquí [/img] mostrará una imagen externa.',
+	'form-tip'		=> 'HTML Aceptado: &lt;b&gt;, &lt;u&gt;, &lt;i&gt;, &lt;s&gt;, &lt;big&gt;, &lt;em&gt;, &lt;small&gt;, &lt;strong&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, &lt;code&gt; escapa, las URLs automágicamente se vuelven links, y [img] URL aquí [/img] mostrará una imagen externa.',
 	'post-button'		=> 'Comentar',
 	'login'			=> 'Iniciar Sesión',
 	'login-tip'		=> 'Iniciar Sesión (opcional)',
@@ -61,6 +61,7 @@ $locale = array (
 	'subscribe'		=> 'Notificarme si hay respuestas',
 	'subscribe-tip'		=> 'Suscribirse a notificaciones por correo electrónico',
 	'edit-comment'		=> 'Editar Comentario',
+	'status'		=> 'Estado',
 	'status-approved'	=> 'Aprobado',
 	'status-pending'	=> 'Aprobación pendiente',
 	'status-deleted'	=> 'Marcado eliminado',

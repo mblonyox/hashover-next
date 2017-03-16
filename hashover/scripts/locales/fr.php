@@ -28,7 +28,7 @@ if (basename ($_SERVER['PHP_SELF']) === basename (__FILE__)) {
 $locale = array (
 	'comment-form'		=> 'Écrivez ici votre commentaire...',
 	'reply-form'		=> 'Écrivez ici votre réponse...',
-	'form-tip'		=> 'HTML accepté : &lt;b&gt;, &lt;u&gt;, &lt;i&gt;, &lt;s&gt;, &lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, &lt;code&gt; échappe le HTML, les URLs sont transformées en liens, et [img]URL ici[/img] fait apparaître une image externe.',
+	'form-tip'		=> 'HTML accepté : &lt;b&gt;, &lt;u&gt;, &lt;i&gt;, &lt;s&gt;, &lt;big&gt;, &lt;em&gt;, &lt;small&gt;, &lt;strong&gt;, &lt;sub&gt;, &lt;sup&gt;, &lt;pre&gt;, &lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;blockquote&gt;, &lt;code&gt; échappe le HTML, les URLs sont transformées en liens, et [img]URL ici[/img] fait apparaître une image externe.',
 	'post-button'		=> 'Publier ce commentaire',
 	'login'			=> 'Identifiant',
 	'login-tip'		=> 'Identifiant (optionnel)',
@@ -68,6 +68,7 @@ $locale = array (
 	'subscribe'		=> 'Avertissez-moi des réponses',
 	'subscribe-tip'		=> 'Souscrire aux notifications par e-mail',
 	'edit-comment'		=> 'Éditer ce commentaire',
+	'status'		=> 'Statut',
 	'status-approved'	=> 'Approuvé',
 	'status-pending'	=> 'En attente d\'approbation',
 	'status-deleted'	=> 'Marqué supprimé',
